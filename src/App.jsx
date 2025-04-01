@@ -17,7 +17,7 @@ import './App.css'
 // Creating Card Component
 const Card = ({ title }) => {
   return (
-    <div>
+    <div className='card'>
       <h2>{ title }</h2>
     </div>
   )
@@ -26,9 +26,7 @@ const Card = ({ title }) => {
 // Latest way of creating Class Components - 2 (using arrow function)
 const App = () => {
   return (
-    <div>
-      <h2>Functional Arrow Component</h2>
-
+    <div className='card-container'>
       {/* Using Card Components */}
       <Card title="Star Wars" rating={5} isCool={true} actors={[{ name: 'Actors' }]} /> {/* Passing props (properties) to component - need to be received by the components as arguments */}
       <Card title="Avatar" />

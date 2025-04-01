@@ -3,32 +3,37 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Class Components - can create multiple components and reuse them multiple times
+// Traditional way of declaring Class Components
+// class ClassComponent extends React.Component {
+//   render() {
+//     return <h2>Class Component</h2>
+//   }
+// }
 
+// Latest way of creating Class Components - 1
+// function App() {}
+
+// Creating Card Component
+const Card = ({ title }) => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h2>{ title }</h2>
+    </div>
+  )
+}
+
+// Latest way of creating Class Components - 2 (using arrow function)
+const App = () => {
+  return (
+    <div>
+      <h2>Functional Arrow Component</h2>
+
+      {/* Using Card Components */}
+      <Card title="Star Wars" rating={5} isCool={true} actors={[{ name: 'Actors' }]} /> {/* Passing props (properties) to component - need to be received by the components as arguments */}
+      <Card title="Avatar" />
+      <Card title="The Lion King" />
+    </div>
   )
 }
 

@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 // Class Components - can create multiple components and reuse them multiple times
@@ -17,14 +15,19 @@ import './App.css'
 // Creating Card Component
 const Card = ({ title }) => {
   // Creating State - using Hook (useState)
+  const [count, setCount] = useState(0);
   const [hasLiked, setHasLiked] = useState(false); // const [params] = useState(initialState?)
 
+  useEffect(() => {
+    console.log(`${title} has been liked: ${hasLiked}`);
+  }, [hasLiked]); // Adding dependecies/deps -> will make sure this is trieggered only when the state is changed
+
   return (
-    <div className='card'>
-      <h2>{ title }</h2>
+    <div className='card' onClick={() => setCount(count + 1)}> {/* Better to use prevState rather than initial state value - count */}
+      <h2>{ title } <br /> {count}</h2>
 
       <button onClick={() => setHasLiked(!hasLiked)}>
-          {hasLiked ? 'Liked' : 'Like'}
+          {hasLiked ? 'Liked' : 'Like'} {/* Conditional rendering */}
       </button>
     </div>
   )

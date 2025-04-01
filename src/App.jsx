@@ -16,9 +16,16 @@ import './App.css'
 
 // Creating Card Component
 const Card = ({ title }) => {
+  // Creating State - using Hook (useState)
+  const [hasLiked, setHasLiked] = useState(false); // const [params] = useState(initialState?)
+
   return (
     <div className='card'>
       <h2>{ title }</h2>
+
+      <button onClick={() => setHasLiked(!hasLiked)}>
+          {hasLiked ? 'Liked' : 'Like'}
+      </button>
     </div>
   )
 }
